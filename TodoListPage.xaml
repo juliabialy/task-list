@@ -40,7 +40,7 @@
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-
+        <!-- Przycisk dodawania -->
         <Frame Padding="0" CornerRadius="20" HasShadow="True">
             <Button Text="+ Add Task"
                     FontSize="20"
