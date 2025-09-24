@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp5.MainPage"
+             BackgroundColor="#F6F7FB"
+             Title="To-Do App">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="20">
+
+            <!-- Nagłówek -->
+            <Label Text="My Tasks"
+                   FontSize="34"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
+
+            <!-- Kafelki kategorii -->
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+
+                <Button Grid.Column="0" Grid.Row="0" Text="💼 Work"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HeightRequest="80"
+                        Clicked="Category_Clicked"/>
+
+                <Button Grid.Column="1" Grid.Row="0" Text="❤️ Health"
+                        BackgroundColor="#E94B77"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HeightRequest="80"
+                        Clicked="Category_Clicked"/>
+
+                <Button Grid.Column="0" Grid.Row="1" Text="🛒 Shopping"
+                        BackgroundColor="#F5A623"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HeightRequest="80"
+                        Clicked="Category_Clicked"/>
+
+                <Button Grid.Column="1" Grid.Row="1" Text="⭐ Others"
+                        BackgroundColor="#9B51E0"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="20"
+                        HeightRequest="80"
+                        Clicked="Category_Clicked"/>
+            </Grid>
+
+            <!-- Separator -->
+            <BoxView HeightRequest="1" Color="#DDD" Margin="0,10"/>
+
+            <!-- Lista wszystkich tasków -->
+            <CollectionView x:Name="AllTasksList"
+                            SelectionMode="Single"
+                            SelectionChanged="Task_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Margin="5,8"
+                               CornerRadius="16"
+                               HasShadow="True"
+                               BackgroundColor="White"
+                               Padding="12">
+                            <HorizontalStackLayout>
+                                <VerticalStackLayout Spacing="2" WidthRequest="230">
+                                    <Label Text="{Binding Name}" FontSize="18" TextColor="#333" FontAttributes="Bold" />
+                                    <Label Text="{Binding Category}" FontSize="14" TextColor="#777" />
+                                </VerticalStackLayout>
+                                <Label Text="🗑"
+                                       FontSize="22"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="End"/>
+                            </HorizontalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <!-- Przycisk dodawania -->
+            <Frame Padding="0" CornerRadius="20" HasShadow="True">
+                <Button Text="+ Add Task"
+                        FontSize="20"
+                        HeightRequest="55"
+                        CornerRadius="20"
+                        TextColor="White"
+                        Clicked="AddTask_Clicked">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="#4A90E2" Offset="0.1" />
+                            <GradientStop Color="#9B51E0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

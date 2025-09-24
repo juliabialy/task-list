@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp5.AddTaskPage"
+             BackgroundColor="#F6F7FB"
+             Title="Add Task">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+
+            <!-- Tytuł -->
+            <Label Text="Add a New Task"
+                   FontSize="32"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   TextColor="#333" />
+
+            <!-- Pole na nazwę -->
+            <Frame CornerRadius="14"
+                   HasShadow="True"
+                   Padding="10"
+                   BackgroundColor="White"
+                   >
+                <Entry x:Name="TaskNameEntry"
+                       Placeholder="Enter task name..."
+                       FontSize="18"
+                       TextColor="#333"/>
+            </Frame>
+
+            <!-- Wybór kategorii -->
+            <Label Text="Select Category:"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   TextColor="#444"
+                   Margin="0,10,0,0"/>
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="15">
+                <Button Grid.Column="0" Grid.Row="0"
+                        Text="💼 WORK"
+                        BackgroundColor="#4A90E2"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="16"
+                        Clicked="Category_Clicked"/>
+                <Button Grid.Column="1" Grid.Row="0"
+                        Text="❤️ HEALTH"
+                        BackgroundColor="#E94B77"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="16"
+                        Clicked="Category_Clicked"/>
+                <Button Grid.Column="0" Grid.Row="1"
+                        Text="🛒 SHOPPING"
+                        BackgroundColor="#F5A623"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="16"
+                        Clicked="Category_Clicked"/>
+                <Button Grid.Column="1" Grid.Row="1"
+                        Text="⭐ OTHERS"
+                        BackgroundColor="#9B51E0"
+                        TextColor="White"
+                        FontSize="18"
+                        CornerRadius="16"
+                        Clicked="Category_Clicked"/>
+            </Grid>
+
+            <!-- Zaznaczona kategoria -->
+            <Label x:Name="SelectedCategoryLabel"
+                   Text="No category selected"
+                   FontSize="16"
+                   TextColor="#888"
+                   HorizontalOptions="Center"/>
+
+            <!-- Przycisk dodania -->
+            <Frame Padding="0"
+                   CornerRadius="18"
+                   HasShadow="True"
+                   BackgroundColor="Transparent">
+                <Button Text="Add Task"
+                        FontSize="20"
+                        HeightRequest="55"
+                        CornerRadius="18"
+                        TextColor="White"
+                        Clicked="Add_Clicked">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="1,1">
+                            <GradientStop Color="#4A90E2" Offset="0.1" />
+                            <GradientStop Color="#9B51E0" Offset="1.0" />
+                        </LinearGradientBrush>
+                    </Button.Background>
+                </Button>
+            </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
