@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp5.TodoListPage"
+             BackgroundColor="#F6F7FB"
+             Title="Category Tasks">
+
+    <VerticalStackLayout Padding="25" Spacing="20">
+
+        <Label x:Name="CategoryTitle"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#333"/>
+
+        <CollectionView x:Name="TodoList"
+                        SelectionMode="Single"
+                        SelectionChanged="TodoList_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="5,8"
+                           CornerRadius="16"
+                           HasShadow="True"
+                           BackgroundColor="White"
+                           Padding="12">
+                        <HorizontalStackLayout>
+                            <Label Text="{Binding Name}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"
+                                   TextColor="#333"
+                                   VerticalOptions="Center"
+                                   WidthRequest="250"/>
+                            <Label Text="{Binding Category}"
+                                   FontSize="14"
+                                   TextColor="#777"
+                                   VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Frame Padding="0" CornerRadius="20" HasShadow="True">
+            <Button Text="+ Add Task"
+                    FontSize="20"
+                    HeightRequest="55"
+                    CornerRadius="20"
+                    TextColor="White"
+                    Clicked="AddButton_Clicked">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="1,1">
+                        <GradientStop Color="#4A90E2" Offset="0.1" />
+                        <GradientStop Color="#9B51E0" Offset="1.0" />
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>
